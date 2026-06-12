@@ -7,7 +7,9 @@ def roman_to_int(roman_string):
     total = 0
     for i in range(len(roman_string)):
         val = values.get(roman_string[i], 0)
-        if i + 1 < len(roman_string) and val < values.get(roman_string[i + 1], 0):
+        next_val = values.get(roman_string[i + 1], 0) \
+            if i + 1 < len(roman_string) else 0
+        if val < next_val:
             total -= val
         else:
             total += val
