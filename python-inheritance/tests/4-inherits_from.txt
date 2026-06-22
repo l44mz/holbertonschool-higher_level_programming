@@ -1,0 +1,53 @@
+==================================
+Tests for 4-inherits_from function
+==================================
+
+>>> inherits_from = __import__('4-inherits_from').inherits_from
+
+# bool inherits from int (not exactly int)
+>>> inherits_from(True, int)
+True
+
+# bool does not inherit from bool (it IS bool)
+>>> inherits_from(True, bool)
+False
+
+# bool inherits from object (indirectly)
+>>> inherits_from(True, object)
+True
+
+# int does not inherit from int (it IS int)
+>>> inherits_from(1, int)
+False
+
+# int inherits from object
+>>> inherits_from(1, object)
+True
+
+# float inherits from object
+>>> inherits_from(1.5, object)
+True
+
+# float does not inherit from float (it IS float)
+>>> inherits_from(1.5, float)
+False
+
+# float does not inherit from int
+>>> inherits_from(1.5, int)
+False
+
+# str inherits from object
+>>> inherits_from("hello", object)
+True
+
+# str does not inherit from str (it IS str)
+>>> inherits_from("hello", str)
+False
+
+# list inherits from object
+>>> inherits_from([], object)
+True
+
+# list does not inherit from list (it IS list)
+>>> inherits_from([], list)
+False
