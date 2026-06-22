@@ -1,0 +1,61 @@
+=====================================
+Tests for 3-is_kind_of_class function
+=====================================
+
+>>> is_kind_of_class = __import__('3-is_kind_of_class').is_kind_of_class
+
+# int is kind of int
+>>> is_kind_of_class(1, int)
+True
+
+# int is not kind of float
+>>> is_kind_of_class(1, float)
+False
+
+# int inherits from object
+>>> is_kind_of_class(1, object)
+True
+
+# float is kind of float
+>>> is_kind_of_class(1.5, float)
+True
+
+# float inherits from object
+>>> is_kind_of_class(1.5, object)
+True
+
+# bool inherits from int
+>>> is_kind_of_class(True, int)
+True
+
+# bool is kind of bool
+>>> is_kind_of_class(True, bool)
+True
+
+# bool inherits from object
+>>> is_kind_of_class(True, object)
+True
+
+# string is kind of str
+>>> is_kind_of_class("hello", str)
+True
+
+# string is not kind of int
+>>> is_kind_of_class("hello", int)
+False
+
+# list is kind of list
+>>> is_kind_of_class([1, 2], list)
+True
+
+# list inherits from object
+>>> is_kind_of_class([1, 2], object)
+True
+
+# None is kind of NoneType
+>>> is_kind_of_class(None, type(None))
+True
+
+# None is kind of object
+>>> is_kind_of_class(None, object)
+True
