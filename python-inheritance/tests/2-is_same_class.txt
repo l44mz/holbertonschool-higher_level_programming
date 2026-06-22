@@ -1,0 +1,49 @@
+===================================
+Tests for 2-is_same_class function
+===================================
+
+>>> is_same_class = __import__('2-is_same_class').is_same_class
+
+# int is exactly int
+>>> is_same_class(1, int)
+True
+
+# int is not float
+>>> is_same_class(1, float)
+False
+
+# int is not object (no inheritance check)
+>>> is_same_class(1, object)
+False
+
+# float is exactly float
+>>> is_same_class(1.5, float)
+True
+
+# string is exactly str
+>>> is_same_class("hello", str)
+True
+
+# string is not int
+>>> is_same_class("hello", int)
+False
+
+# list is exactly list
+>>> is_same_class([1, 2], list)
+True
+
+# None is NoneType
+>>> is_same_class(None, type(None))
+True
+
+# None is not int
+>>> is_same_class(None, int)
+False
+
+# bool is exactly bool
+>>> is_same_class(True, bool)
+True
+
+# bool is not int (even though bool inherits from int)
+>>> is_same_class(True, int)
+False
