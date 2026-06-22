@@ -1,0 +1,40 @@
+=====================================
+Tests for 5-base_geometry BaseGeometry
+=====================================
+
+>>> BaseGeometry = __import__('5-base_geometry').BaseGeometry
+
+# Can instantiate
+>>> bg = BaseGeometry()
+
+# Is an object
+>>> isinstance(bg, object)
+True
+
+# Is an instance of BaseGeometry
+>>> isinstance(bg, BaseGeometry)
+True
+
+# Has __class__ attribute
+>>> '__class__' in dir(bg)
+True
+
+# Has __doc__ attribute
+>>> '__doc__' in dir(bg)
+True
+
+# Has __dict__ attribute
+>>> '__dict__' in dir(bg)
+True
+
+# Class name is correct
+>>> BaseGeometry.__name__
+'BaseGeometry'
+
+# Module has documentation
+>>> len(__import__('5-base_geometry').__doc__) > 0
+True
+
+# Class has documentation
+>>> len(BaseGeometry.__doc__) > 0
+True
