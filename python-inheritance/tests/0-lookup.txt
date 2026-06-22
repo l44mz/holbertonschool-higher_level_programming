@@ -1,0 +1,49 @@
+===========================
+Tests for 0-lookup function
+===========================
+
+>>> lookup = __import__('0-lookup').lookup
+
+# Returns a list
+>>> type(lookup(int))
+<class 'list'>
+
+# Works on basic object
+>>> type(lookup(object))
+<class 'list'>
+
+# Built-in type contains expected attributes
+>>> 'bit_length' in lookup(int)
+True
+
+>>> '__init__' in lookup(int)
+True
+
+# Works on a simple class
+>>> class MyClass: pass
+>>> '__class__' in lookup(MyClass)
+True
+
+# Works on an instance
+>>> class MyClass2:
+...     my_attr = 3
+...     def my_meth(self): pass
+>>> 'my_attr' in lookup(MyClass2)
+True
+>>> 'my_meth' in lookup(MyClass2)
+True
+
+# Works on built-in types
+>>> '__add__' in lookup(str)
+True
+
+>>> '__len__' in lookup(list)
+True
+
+# Works on None
+>>> type(lookup(None))
+<class 'list'>
+
+# Result is sorted
+>>> lookup(int) == sorted(lookup(int))
+True
