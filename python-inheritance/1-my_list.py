@@ -6,5 +6,5 @@ class MyList(list):
     """A class that inherits from list and adds a sorted print method."""
 
     def print_sorted(self):
-        """Print the list elements sorted in ascending order without modifying the original list."""
+        """Print the list elements sorted in ascending order."""
         print(sorted(self))
