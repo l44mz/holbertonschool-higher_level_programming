@@ -46,7 +46,7 @@ class Circle(Shape):
         return math.pi * self.radius ** 2
 
     def perimeter(self):
-        """Calculate the perimeter (circumference) of the circle.
+        """Calculate the perimeter of the circle.
 
         Returns:
             float: The perimeter of the circle.
@@ -90,5 +90,5 @@ def shape_info(shape):
     Args:
         shape: Any object implementing area() and perimeter() methods.
     """
-    print("Area: {}".format(shape.area()))
-    print("Perimeter: {}".format(shape.perimeter()))
+    print(f"Area: {shape.area()}")
+    print(f"Perimeter: {shape.perimeter()}")
