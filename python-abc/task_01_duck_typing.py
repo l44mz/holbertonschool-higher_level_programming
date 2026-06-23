@@ -1,5 +1,5 @@
-#!/usr/bin/python3
-"""Module for duck typing with abstract base classes."""
+#!/usr/bin/env python3
+"""Module that defines Shape abstract class with Circle and Rectangle."""
 from abc import ABC, abstractmethod
 import math
 
@@ -9,86 +9,49 @@ class Shape(ABC):
 
     @abstractmethod
     def area(self):
-        """Calculate the area of the shape.
-
-        Returns:
-            float: The area of the shape.
-        """
+        """Abstract method that returns the area of the shape."""
         pass
 
     @abstractmethod
     def perimeter(self):
-        """Calculate the perimeter of the shape.
-
-        Returns:
-            float: The perimeter of the shape.
-        """
+        """Abstract method that returns the perimeter of the shape."""
         pass
 
 
 class Circle(Shape):
-    """Class representing a circle, inheriting from Shape."""
+    """A class that defines a Circle."""
 
     def __init__(self, radius):
-        """Initialize Circle with a radius.
-
-        Args:
-            radius (float): The radius of the circle.
-        """
+        """Instantiates a Circle with a given radius."""
         self.radius = radius
 
     def area(self):
-        """Calculate the area of the circle.
-
-        Returns:
-            float: The area of the circle.
-        """
-        return math.pi * self.radius ** 2
+        """Returns the area of the circle."""
+        return math.pi * abs(self.radius) ** 2
 
     def perimeter(self):
-        """Calculate the perimeter of the circle.
-
-        Returns:
-            float: The perimeter of the circle.
-        """
-        return 2 * math.pi * self.radius
+        """Returns the perimeter (circumference) of the circle."""
+        return 2 * math.pi * abs(self.radius)
 
 
 class Rectangle(Shape):
-    """Class representing a rectangle, inheriting from Shape."""
+    """A class that defines a Rectangle."""
 
     def __init__(self, width, height):
-        """Initialize Rectangle with width and height.
-
-        Args:
-            width (float): The width of the rectangle.
-            height (float): The height of the rectangle.
-        """
+        """Instantiates a Rectangle with given width and height."""
         self.width = width
         self.height = height
 
     def area(self):
-        """Calculate the area of the rectangle.
-
-        Returns:
-            float: The area of the rectangle.
-        """
+        """Returns the area of the rectangle."""
         return self.width * self.height
 
     def perimeter(self):
-        """Calculate the perimeter of the rectangle.
-
-        Returns:
-            float: The perimeter of the rectangle.
-        """
+        """Returns the perimeter of the rectangle."""
         return 2 * (self.width + self.height)
 
 
 def shape_info(shape):
-    """Print the area and perimeter of a shape using duck typing.
-
-    Args:
-        shape: Any object implementing area() and perimeter() methods.
-    """
-    print(f"Area: {shape.area()}")
-    print(f"Perimeter: {shape.perimeter()}")
+    """Prints the area and perimeter of a shape using duck typing."""
+    print("Area: {}".format(shape.area()))
+    print("Perimeter: {}".format(shape.perimeter()))
