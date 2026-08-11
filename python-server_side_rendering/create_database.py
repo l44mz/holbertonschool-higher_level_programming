@@ -1,7 +1,11 @@
+import os
 import sqlite3
 
 
 def create_database():
+    if os.path.exists('products.db'):
+        os.remove('products.db')
+
     conn = sqlite3.connect('products.db')
     cursor = conn.cursor()
     cursor.execute('''
